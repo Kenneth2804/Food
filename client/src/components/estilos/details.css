@@ -1,0 +1,11 @@
+
+.card{
+	position : relative;
+	height: 100%;
+	width: 100%;
+	margin : 200px auto;
+	background-color : #FFF;
+	-webkit-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+}

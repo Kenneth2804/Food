@@ -1,0 +1,49 @@
+body{
+    text-decoration: none;
+    background-image: url("./p2.png");
+  
+}
+
+
+
+.cartitas{
+ grid-column: 1 / -1;
+grid-row: 7 / -1;
+grid-template-columns: repeat(3, auto);
+grid-template-rows: repeat(3, auto);
+gap: 0rem;
+display: grid;
+ 
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    
+}
+.orientation{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 2.5px;
+    
+}
+.healt{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 2.5px;
+    margin: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
+}
+.dietss{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 2.5px;
+    margin: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
+}
+
+.crea{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 2.5px;
+}
