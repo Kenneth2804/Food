@@ -21,7 +21,7 @@ summary: {
   allowNull: false
 },
 healthScore: {
-  type: DataTypes.FLOAT,
+  type: DataTypes.INTEGER,
   allowNull: true,
 
   

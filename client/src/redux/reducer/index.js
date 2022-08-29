@@ -34,9 +34,7 @@ export default function rootReducer (state = initial, action){
                             diets: action.payload,
                         };
                         case "CREATE_R":
-                            return{
-                                ...state,
-                            };
+                            return{...state};
 
                             case "FILTER_TYPE_DIET":
                             const diettypes = state.allrecipesC

@@ -29,11 +29,10 @@ const apibfo = await apiurl.data.results.map((c)=> {
     summary: c.summary,
     healthScore: c.healthScore,
     image: c.image,
-    steps: c. analyzedInstructions[0]?.steps.map((p) =>{
-        return{
-            number: p.number,
-            step: p.step,
-        }
+    steps: c.analyzedInstructions[0]?.steps.map((p) =>{
+        return  (p.step)
+          
+        
     }),
     diets: c.diets,
 }

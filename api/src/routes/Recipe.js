@@ -18,7 +18,6 @@ router.post('/', async(req,res) =>{
             healthScore,
             image,
             steps,
-            diets,
             createdInBd,
     
         })

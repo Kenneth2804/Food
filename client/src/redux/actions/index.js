@@ -50,6 +50,7 @@ return async (dispatch) => {
     return async (dispatch) => {
       try {
         const data = await  axios.get("http://localhost:3001/types", {});
+      console.log(data)
         return dispatch({
           type: "GET_DIET",
           payload: data.data.map(p => p.Dname)
@@ -63,9 +64,12 @@ return async (dispatch) => {
   export function postDiets(payload){
     return async function (dispatch){
 try{
-      const data = await axios.post("http://localhost:3001/postRecipes", payload)
+      const databonita = await axios.post('http://localhost:3001/postRecipe', payload)
 
-      return data;
+      return dispatch({
+        type: "CREATE_R",
+        payload: databonita.data
+      })
     }catch(error){
       console.log(error);
     }

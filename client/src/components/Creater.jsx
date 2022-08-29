@@ -1,21 +1,24 @@
+
 import React, {useState, useHistory} from "react";
 import {Link, } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import { useEffect } from "react";
 import {getDiet, postDiets } from '../redux/actions/index';
+import './estilos/Creater.css';
 
 export default function Creater (){
     const dispatch = useDispatch();
-    const diets = useSelector((state) => state.detail);
+    const miburritosabanero = useSelector((state) => state.diets);
+    console.log(miburritosabanero)
     useEffect(() => {
       dispatch(getDiet());
-    }, []);
+    }, [dispatch]);
   
     const [input, setInput] = useState({
       title: "",
       summary: "",
       healthScore: "",
-      steps: [],
+      steps: "",
       image: "",
       diets: [],
     });
@@ -23,7 +26,7 @@ export default function Creater (){
   
     let handleChange = (e) => {
       e.preventDefault();
-      setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+      setInput( { ...input, [e.target.name]: e.target.value });
       setError(
         validate({
           ...input,
@@ -53,12 +56,12 @@ export default function Creater (){
       e.preventDefault();
       setInput({
         ...input,
-        steps: [e.target.value],
+        [e.target.name]: e.target.value
       });
       setError(
         validate({
           ...input,
-          steps: [e.target.value],
+      [e.target.name]: e.target.value
         })
       );
       console.log(input.steps);
@@ -66,39 +69,37 @@ export default function Creater (){
   
     let handleSubmit = (e) => {
       e.preventDefault();
-      if(!error.submit){return}
-      dispatch(postDiets(input));
+     dispatch(postDiets(input));
       console.log(input);
       alert("recipe created ☻");
       setInput({
         title: "",
         summary: "",
         healthScore: "",
-        steps: [],
+        steps: "",
         image: "",
         diets: [],
       });
     };
-    let handleDelete = (e) => {
-      setInput({
-        ...input,
-        diets: input.diets.filter((d) => d !== e),
-      });
-      setError(
-        validate({
-          ...input,
-          diets: input.diets.filter((d) => d !== e),
-        })
-      );
-    };
+    function handleDelete(e){
+      let { value } = e.target;
+      console.log("a");
+      if(value && input.diets.includes(value)){
+          let filtered = input.diets.filter(e => e !== value);
+          setInput({
+              ...input,
+              //Cada vez que haces un click en el select, se va concatenando en diet
+              //diet: [...input.diet, e.target.value],
+              diets : filtered,
+          });
+      }
+  }
   
     let validate = (input) => {
       let error = {};
       if (!input.title || input.title.length > 40) {
         error.title = "Write a name";
-      } 
-       else if (!input.healthScore || input.healthScore < 0 ||  input.healthScore > 100 ) {
-        error.healthScore = "The Health Score must be from 0 to a 100";
+      } else if (!input.healthScore || input.healthScore < 0 ||  input.healthScore > 100 ) {error.healthScore = "The Health Score must be from 0 to a 100";
       } else if (!input.steps[0]) { error.steps = "You need to write steps";
       } else if (!input.image) { error.image = "Upload an image";
       } else if (!input.diets.length) { error.diets = "Choose a Diet";
@@ -106,10 +107,12 @@ export default function Creater (){
       console.log(error)
       return error;
     };
+
+
   
     return (
       <div>
-        
+  
   
         <div>
           <h1 >Create Recipe</h1>
@@ -137,7 +140,7 @@ export default function Creater (){
   
             <div>
               <label>Steps:</label>
-              <input type={"text"} name={"steps"}  value={input.steps[0]} onChange={(e) => handleSteps(e)}/>
+              <input type={"text"} name={"steps"}  value={input.steps} onChange={(e) => handleSteps(e)}/>
             </div>
             {error.steps && (<p>{error.steps}</p>)}
           
@@ -152,10 +155,10 @@ export default function Creater (){
             </div>
             <div>
             <label>Diets: </label>
-                    <select onChange={handleSelect} >
+                    <select className="sele"   onChange={handleSelect} >
                     {
-                       diets.map(el => (
-                            <option key={el.id} value={el.Dname}>{el.Dname}</option>
+                       miburritosabanero.map(el => (
+                            <option key={el.id} value={el}>{el}</option>
                         ))
                     }
 
@@ -170,7 +173,7 @@ export default function Creater (){
                         input.diets.map( (el, i) => (
                             <div  key ={i}>
                                 <label>{el}</label>
-                                <button  onClick={(e) => handleDelete(e, el)}>X</button>
+                                <button type="button" value={el}  onClick={(e) => handleDelete(e, el)}>X</button>
                             </div>
                         ))
                         }</div>
