@@ -22,6 +22,7 @@
 	text-decoration: none;
     border-radius: 16px;
     text-align: center;
+	cursor: pointer;
 }
 
 .paginacion ul li a:hover {

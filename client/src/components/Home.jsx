@@ -109,7 +109,7 @@ export default function Home() {
           allfood={allfood.length}
           paginado={paginado}
         />
-        <SearchBar />
+        <SearchBar setcurrentPage ={setcurrentPage} />
         <br></br>
         <br></br>
         <div className="cartitas">

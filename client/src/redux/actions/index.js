@@ -3,7 +3,7 @@ import axios from "axios";
 export function getAllfood () {
     return async (dispatch) =>{
       try{
-      let data = await  axios.get("http://localhost:3001/recipes", {
+      let data = await  axios.get("/recipes", {
         
       });
     return dispatch({
@@ -20,7 +20,7 @@ export function getAllfood () {
   export function getFoodName (name){
 return async (dispatch) => {
   try {
-    const data = await axios.get(`http://localhost:3001/recipes/?title=${name}`);
+    const data = await axios.get(`/recipes/?title=${name}`);
     return dispatch({
       type: "GET_NAME",
       payload: data.data,
@@ -35,7 +35,7 @@ return async (dispatch) => {
   export function getFoodDetail (id){
     return async (dispatch) => {
       try {
-        const data = await axios.get(`http://localhost:3001/recipes/${id}`);
+        const data = await axios.get(`/recipes/${id}`);
         return dispatch ({
           type: "GET_DETAIL",
           payload: data.data
@@ -49,7 +49,7 @@ return async (dispatch) => {
   export function getDiet (){
     return async (dispatch) => {
       try {
-        const data = await  axios.get("http://localhost:3001/types", {});
+        const data = await  axios.get("/types", {});
       console.log(data)
         return dispatch({
           type: "GET_DIET",
@@ -64,7 +64,7 @@ return async (dispatch) => {
   export function postDiets(payload){
     return async function (dispatch){
 try{
-      const databonita = await axios.post('http://localhost:3001/postRecipe', payload)
+      const databonita = await axios.post('/postRecipe', payload)
 
       return dispatch({
         type: "CREATE_R",

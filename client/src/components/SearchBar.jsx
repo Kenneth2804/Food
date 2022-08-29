@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {getFoodName} from "../redux/actions/index";
 import './estilos/SearchBar.css';
 
-export default function SearchBar (){
+export default function SearchBar ({setcurrentPage}){
     const dispatch= useDispatch()
     const [name, setName] = useState("")
 
@@ -14,7 +14,8 @@ export default function SearchBar (){
 
     function handleSubmit(e){
         if(name.length !== 0 ){
-            dispatch(getFoodName(name)) 
+            dispatch(getFoodName(name))
+            setcurrentPage(1) 
         }
         if(name.length === 0){
             alert('You Should Write...')
