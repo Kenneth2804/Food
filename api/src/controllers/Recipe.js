@@ -2,7 +2,7 @@ const axios = require("axios");
 const {Recipe, Diets} = require('../db');
 
 const getidapi = async(id)=>{
-    const idapi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information&addRecipeInformation=trueapiKey=52b622cf48dc4871a578bca021150536`);
+    const idapi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information&addRecipeInformation=trueapiKey=7c9a6359ec744104884b0856a7043b71`);
    
     return idapi.data;
 }
@@ -19,7 +19,7 @@ const getidbd = async(id)=>{
     })
 }
 const getapi = async()=>{
-    const apiurl = await axios.get("https://api.spoonacular.com/recipes/complexSearch?&addRecipeInformation=true&apiKey=52b622cf48dc4871a578bca021150536&number=100");
+    const apiurl = await axios.get("https://api.spoonacular.com/recipes/complexSearch?&addRecipeInformation=true&apiKey=7c9a6359ec744104884b0856a7043b71&number=100");
 
 
 const apibfo = await apiurl.data.results.map((c)=> {

@@ -36,11 +36,14 @@ export default function Creater() {
 
   const handleSelect = (e) => {
     e.preventDefault();
+    if (!input.diets.includes(e.target.value)) {
+      
+    
     setInput({
       ...input,
       diets: [...input.diets, e.target.value],
     });
-
+  }
     setError(
       validate({
         ...input,
@@ -106,7 +109,7 @@ export default function Creater() {
     } else if (!input.steps[0]) {
       error.steps = "You need to write steps";
     } else if (input.image.length > 0 && !input.image.match(/^(ftp|http|https):\/\/[^ "]+$/)) {
-      error.image = "Upload an image";
+      error.image = "Upload an URL image";
     } else if (!input.diets.length) {
       error.diets = "Choose a Diet";
     } else {
@@ -147,9 +150,11 @@ export default function Creater() {
           <br></br>
           <div>
             <label>Healthy Level:</label><br></br><br></br>
-            <input
-              type={"number"}
             
+            <input
+              type={"range"}
+              min="0"
+              max="100"
               name={"healthScore"}
               value={input.healthScore}
               onChange={(e) => handleChange(e)}
@@ -215,7 +220,12 @@ export default function Creater() {
 
           <input type={"submit"} value={"CREATE"} />
         </form>
+        <Link to="/home">
+        <button>Volver</button>
+      </Link>
       </div>
+
+      
     </div>
   );
 }

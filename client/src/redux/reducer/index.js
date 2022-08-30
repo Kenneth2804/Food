@@ -5,6 +5,7 @@ allrecipesC: [],
 detail: [],
 recipess: [],
 diets:[],
+error: false,
 
 }
 

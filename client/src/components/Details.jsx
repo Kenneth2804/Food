@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getFoodDetail } from "../redux/actions/index";
+import './estilos/details.css'
 
 export default function Details(props) {
   const dispatch = useDispatch();
@@ -12,21 +13,26 @@ export default function Details(props) {
 
   const myfoods = useSelector((state) => state.detail);
 
+  
   return (
     <div className="card">
+     
+     <Link to="/home">
+        <button>Volver</button>
+      </Link>
       {myfoods.length > 0 ? (
-        <div>
+        <div><br></br>
           <img
             src={myfoods[0].image}
             alt="img not found"
             width="200px"
             height="250px"
           />
-          <h1>NAME: {myfoods[0].title}</h1>
-          <h2>SUMMARY: {myfoods[0].summary.replace(/<[^>]*>?/g)}</h2>
-          <h2>DIET TYPE: {myfoods[0].diets} </h2>
-          <h2>HealthScore: {myfoods[0].healthScore}</h2>
-          <h5>steps: {myfoods[0].steps || "not found"}</h5>
+          <h1 className="elneim">NAME: <br></br>{myfoods[0].title}</h1>
+          <h2>SUMMARY: <br></br></h2> <p className="nombress">{myfoods[0].summary.replace(/<[^>]*>?/g)}</p>
+          <h2>DIET TYPE:<br></br></h2> <p className="nombress">{myfoods[0].diets}</p> 
+          <h2>HealthScore:<br></br></h2> <p className="nombress"> {myfoods[0].healthScore}</p>
+          <h2>steps:<br></br></h2> <p className="nombress"> {myfoods[0].steps || "not found"}</p>
         </div>
       ) : (
         <p>LOADING...</p>

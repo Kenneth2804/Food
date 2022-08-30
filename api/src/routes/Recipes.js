@@ -9,6 +9,7 @@ router.get('/', async(req,res) =>{
     const{title} = req.query;
     
      const allr = await getall();
+     
 if (title) {
     const rnombre = await allr.filter(p => p.title.toLowerCase().includes(title.toLowerCase()));
     rnombre.length ?

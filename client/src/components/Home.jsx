@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllfood,
-  FilterByDiet,
-  filterhealtScore,
-  filterbyorientation,
+import { getAllfood, FilterByDiet, filterhealtScore,filterbyorientation,
 } from "../redux/actions/index";
 import Paginado from "./Paginado";
 import Card from "./Card";
@@ -25,7 +21,10 @@ export default function Home() {
 
   const paginado = (npage) => {
     setcurrentPage(npage);
+
   };
+
+
 
   useEffect(() => {
     dispatch(getAllfood());
@@ -113,9 +112,11 @@ export default function Home() {
         <br></br>
         <br></br>
         <div className="cartitas">
+
           {currentfood?.map((e) => {
             return (
               <Link to={"/home/" + e.id}>
+                
                 <Card
                   title={e.title}
                   image={e.image}
@@ -123,6 +124,7 @@ export default function Home() {
                   id={e.id}
                   healthScore={e.healthScore}
                 />
+
               </Link>
             );
           })}

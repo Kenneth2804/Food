@@ -7,7 +7,7 @@ import './estilos/SearchBar.css';
 export default function SearchBar ({setcurrentPage}){
     const dispatch= useDispatch()
     const [name, setName] = useState("")
-
+    
     function handleInputChange(e) {
         setName(e.target.value)
     }
@@ -18,7 +18,7 @@ export default function SearchBar ({setcurrentPage}){
             setcurrentPage(1) 
         }
         if(name.length === 0){
-            alert('You Should Write...')
+            alert('You Should Write...');
         }
         setName("")
     }

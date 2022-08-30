@@ -26,7 +26,7 @@ return async (dispatch) => {
       payload: data.data,
     })
   } catch (error) {
-    console.log(error);
+    alert ("Recipe doesn't exist");
   }
 }
 
