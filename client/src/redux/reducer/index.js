@@ -72,6 +72,8 @@ export default function rootReducer (state = initial, action){
                                 if (b.healthScore > a.healthScore) { return -1;}
                                 return 0;
                                });
+                               case "RARA":
+                                return{ ...state, detail: action.payload}
 
                                return{
                                     ...state,

@@ -122,12 +122,17 @@ export default function Creater() {
   return (
     <div >
       <div>
-        <h1>Create Recipe</h1>
+        <h1>Create Recipe</h1> <Link to="/home">
+        <button>Volver</button>
+      </Link>
       </div>
       <div className="containerrr">
         <br />
-        <form  className="card" onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          
+          <div className="card">
           <div>
+            
             <label>Name:</label><br></br><br></br>
             <input
             className="nombrek"
@@ -152,10 +157,10 @@ export default function Creater() {
             <label>Healthy Level:</label><br></br><br></br>
             
             <input
-              type={"range"}
-              min="0"
-              max="100"
+              type={"number"}
+          
               name={"healthScore"}
+              onInput="amount.value=rangeInput.value"
               value={input.healthScore}
               onChange={(e) => handleChange(e)}
             />
@@ -218,11 +223,9 @@ export default function Creater() {
 
           <br />
 
-          <input type={"submit"} value={"CREATE"} />
-        </form>
-        <Link to="/home">
-        <button>Volver</button>
-      </Link>
+          <input type={"submit"} value={"CREATE"} /></div>
+        </form>  <br />  <br />
+     
       </div>
 
       

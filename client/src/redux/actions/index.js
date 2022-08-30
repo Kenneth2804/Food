@@ -108,4 +108,9 @@ return{
   }
   }
   
- 
+ export function re (payload){
+  return{
+    type: "RARA",
+    payload: payload
+  }
+ }

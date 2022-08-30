@@ -56,16 +56,9 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/recipe"> CREAR RECETA</Link>
+      <Link to="/recipe"> <button className="rece">CREAR RECETA</button></Link>
       <h1 className="elacheuno">PI FOODS</h1>
-      <button
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        {" "}
-        REFRESH
-      </button>
+      <button className="refre" onClick={(e) => { handleClick(e); }} > {" "} REFRESH </button>
 
       <div>
         <select onChange={(e) => handlesort(e)} className="orientation">
@@ -78,15 +71,14 @@ export default function Home() {
         </select>
         <select onChange={(e) => handleScore(e)} className="healt">
           <option value="none" selected disabled hidden>
-            {" "}
-            HEALTSCORE{" "}
+            {" "}HEALTSCORE{" "}
           </option>
           <option value="max"> Hight </option>
           <option value="min"> Low </option>
         </select>
 
         <select onChange={(e) => handleFilterByTypeDiet(e)} className="dietss">
-          <option value="All"> Todos </option>
+          <option value="All"> DIETS </option>
           <option value="vegetarian">vegetarian</option>
           <option value="vegan">vegan</option>
           <option value="whole 30">Whole30</option>
