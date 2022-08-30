@@ -32,6 +32,11 @@ return async (dispatch) => {
 
   };
 
+ 
+
+
+
+
   export function getFoodDetail (id){
     return async (dispatch) => {
       try {
@@ -114,3 +119,4 @@ return{
     payload: payload
   }
  }
+
