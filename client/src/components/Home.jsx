@@ -23,8 +23,7 @@ export default function Home() {
     setcurrentPage(npage);
 
   };
-
-
+ 
 
   useEffect(() => {
     dispatch(getAllfood());

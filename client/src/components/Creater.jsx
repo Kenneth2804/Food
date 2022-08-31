@@ -110,7 +110,12 @@ export default function Creater() {
       error.steps = "You need to write steps";
     } else if (input.image.length > 0 && !input.image.match(/^(ftp|http|https):\/\/[^ "]+$/)) {
       error.image = "Upload an URL image";
-    } else if (!input.diets.length) {
+    }
+    else if(!/^[0-9]+$/.test(input.healthScore)){
+     error.healthScore = "YOU HAVE TO WRITE WITHOUT A DOT"
+    }
+    
+    else if (!input.diets.length) {
       error.diets = "Choose a Diet";
     } else {
       error.submit = "Time to submit ☻";

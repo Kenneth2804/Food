@@ -27,9 +27,12 @@
 
 .paginacion ul li a:hover {
 	background:#037E8C;
+
 }
 
 .paginacion ul li .active {
-	background:#037E8C;
+	background-color:#037E8C ;
 	
 }
+
+
