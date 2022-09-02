@@ -36,6 +36,7 @@ export default function Details(props) {
           <h2>DIET TYPE:<br></br></h2> <p className="nombress">{myfoods[0].diets}</p> 
           <h2>HealthScore:<br></br></h2> <p className="nombress"> {myfoods[0].healthScore}</p>
           <h2>steps:<br></br></h2> <p className="nombress"> {myfoods[0].steps || "not found"}</p>
+          
         </div>
       ) : (       <img src="https://taajpalacenm.com/public/loader.gif"/>
         )}

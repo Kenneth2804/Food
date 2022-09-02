@@ -48,14 +48,13 @@ export default function rootReducer (state = initial, action){
                                 
                                const sortedArr = action.payload === "asc" ? state.allrecipes.sort(function(a,b){
                                 if(a.title > b.title)  { return 1;   }
-                                if (b.title > a.title) { return -1;  }
-                                return 0;
-                               }):
+                                if (b.title > a.title) { return -1;  } return 0; })
+                               
+                                :
+                              
                                state.allrecipes.sort(function(a,b){
                                 if (a.title > b.title) { return -1; }
-                                if (b.title > a.title) { return 1;  }
-                                return 0;
-                               })
+                                if (b.title > a.title) { return 1;  }  return 0; })
                                return{
                                 ...state,
                                 allrecipes: sortedArr
@@ -64,9 +63,10 @@ export default function rootReducer (state = initial, action){
                                
                                const score = action.payload ==="max" ? state.allrecipes.sort(function (a,b){
                                 if (a.healthScore > b.healthScore) { return -1; }
-                                if (b.healthScore > a.healthScore) { return 1;  }
-                                return 0;
-                               }) :
+                                if (b.healthScore > a.healthScore) { return 1;  } return 0;})
+                                 
+                                :
+                                
                                state.allrecipes.sort(function(a,b){
                                 if (a.healthScore > b.healthScore) { return 1; }
                                 if (b.healthScore > a.healthScore) { return -1;}

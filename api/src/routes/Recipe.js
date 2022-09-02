@@ -19,6 +19,7 @@ router.post('/', async(req,res) =>{
             image,
             steps,
             createdInBd,
+  
     
         })
         const dieta = await Diets.findAll({

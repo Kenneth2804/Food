@@ -15,11 +15,11 @@ export default function Home() {
   const [order, setOrder] = useState("");
   const [currentPage, setcurrentPage] = useState(1); // creamos un estado local para saber por donde va a comenzar el paginado
   const [foodpages, setFoodpages] = useState(9); //cuantas recetas vamos a tener en cada paginado
-  const indicelast = currentPage * foodpages;
-  const indicefirst = indicelast - foodpages;
-  const currentfood = allfood.slice(indicefirst, indicelast); //aqui se va guardando cada receta que se renderiza en cada pagina especifica
+  const indicelast = currentPage * foodpages; //la pagina que estoy por la cantidad de personajes por página, o sea vale 9 por que 1*9= 9
+  const indicefirst = indicelast - foodpages; // la cantidad de los últimos personajes menos los personajes por página los cuales dan 0 porque 9-9= 0
+  const currentfood = allfood.slice(indicefirst, indicelast); //aqui se va guardando cada receta que se renderiza en cada pagina especifica. el slice divide el arreglo para que regrese del 0 al 9 
 
-  const paginado = (npage) => {
+  const paginado = (npage) => { //setear paginado a donde de click
     setcurrentPage(npage);
 
   };
@@ -94,9 +94,9 @@ export default function Home() {
         <br></br>
         <br></br>
 
-        <Paginado
-          foodpages={foodpages}
-          allfood={allfood.length}
+        <Paginado 
+          foodpages={foodpages}//pasale recetas por pagina
+          allfood={allfood.length} //mis recetas por numero
           paginado={paginado}
         />
         <SearchBar setcurrentPage ={setcurrentPage} />
@@ -104,7 +104,7 @@ export default function Home() {
         <br></br>
         <div className="cartitas">
 
-          {currentfood?.map((e) => {
+          {currentfood?.map((e) => { //
             return (
               <Link to={"/home/" + e.id}>
                 
@@ -114,6 +114,7 @@ export default function Home() {
                   diets={e.diets}
                   id={e.id}
                   healthScore={e.healthScore}
+
                 />
 
               </Link>

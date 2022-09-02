@@ -1,7 +1,7 @@
 import React from "react";
 import './estilos/Cartita.css'
 
-export default function Card({image, title, diets, healthScore, createdInBd, id}){
+export default function Card({image, title, diets, healthScore, id}){
     const dietsss = [];
     for(let i = 0; i < diets.length; i++){
         dietsss.push(diets[i]);
@@ -37,7 +37,7 @@ return (
 
 </div>
 
-<h5>{createdInBd}</h5>
+
    </div>
 );
 

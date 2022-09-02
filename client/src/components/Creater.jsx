@@ -20,6 +20,7 @@ export default function Creater() {
     steps: "",
     image: "",
     diets: [],
+
   });
   const [error, setError] = useState({});
 
@@ -80,6 +81,7 @@ export default function Creater() {
       steps: "",
       image: "",
       diets: [],
+
     });
   };
   function handleDelete(e) {
@@ -200,7 +202,9 @@ export default function Creater() {
           </div>
           <div>
             <label>Diets: </label>
+
             <select className="sele" onChange={handleSelect}>
+            <option value="none" selected disabled hidden>DIETS</option>
               {miburritosabanero.map((el) => (
                 <option key={el.id} value={el}>
                   {el}
@@ -210,7 +214,7 @@ export default function Creater() {
 
             {error.diets && <span>{error.diets}</span>}
           </div>
-
+             
           <div>
             {input.diets.map((el, i) => (
               <div key={i}>
